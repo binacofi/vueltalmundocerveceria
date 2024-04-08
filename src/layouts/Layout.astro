@@ -4,9 +4,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-import Top from "../components/top.astro"
-import Footer from "../components/footer.astro"
 ---
 
 <!doctype html>
@@ -22,12 +19,8 @@ import Footer from "../components/footer.astro"
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 	</head>
 	<body>
-    <div class="w-full flex justify-center">
-      <div class="w-full max-w-xl bg-gray-950/70 backdrop-blur-sm text-gray-50 h-screen">
-        <Top/>
-		    <slot />
-        <Footer/>
-      </div>
+    <div class="w-full flex justify-center bg-neutral-800/70">
+	    <slot />
     </div>
     <style>
     body {

@@ -1,0 +1,43 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import Top from "../components/top.astro"
+import Footer from "../components/footer.astro"
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    <link rel='stylesheet' href="https://cdn-uicons.flaticon.com/2.2.0/uicons-brands/css/uicons-brands.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+	</head>
+	<body>
+    <div class="w-full flex justify-center">
+      <div class="w-full max-w-xl bg-gray-950/70 backdrop-blur-sm text-gray-50 h-screen">
+        <Top/>
+		    <slot />
+        <Footer/>
+      </div>
+    </div>
+    <style>
+    body {
+      background-image: url("bg.jpg");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    </style>
+	</body>
+</html>
+

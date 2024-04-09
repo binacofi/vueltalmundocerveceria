@@ -53,11 +53,12 @@ export default function CarModal() {
   }
 
   function GenWhatsappLink() {
-    let link = "https://wa.me/584245434188?text=Buen%20día.%20Tengo%20interes%20en%20los%20siguientes%20productos:%0A"
+    let link = "https://wa.me/584245434188?text=Saludos.%20Me%20gustaría%20adquirir%20los%20siguientes%20productos:%0A"
     car.get().map(beer => {
-      link += `%0A🍺%20${beer?.name}%20-%20${beer?.quantity}%20unidades%0A`
+
+      link += `%0A🍺%20${beer?.name}%20-%20${beer?.quantity}%20${beer.quantity > 1 ? "unidades" : "unidad"}%0A`
     })
-    link += "%0AEspero%20pronto%20los%20datos%20que%20necesite.%20Gracias."
+    link += "%0AQuedo%20pendiente%20a%20los%20datos%20que%20necesite.%20Gracias."
     SetWhatsappLink(link)
   }
 

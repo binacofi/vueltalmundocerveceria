@@ -14,7 +14,7 @@ export default function ProductModal({product, showModal, closeModal}) {
   return(
     <div className={`z-10 w-full ${ showModal ? "" : "hidden" } h-screen top-0 left-0 fixed bg-neutral-800/90`}>
       <div className="flex justify-end px-5 py-3">
-        <button onClick={closeModal} className="font-medium text-lg text-white">x</button>
+        <button onClick={closeModal} className="font-medium text-2xl text-white">x</button>
       </div>
       <div className="w-full justify-center flex px-5">
         <div className="p-5 bg-neutral-100 w-full max-w-sm rounded-sm shadow-lg">
@@ -29,7 +29,7 @@ export default function ProductModal({product, showModal, closeModal}) {
           <p className="text-xs my-3">{product?.description}</p>
           <div className="flex items-center justify-between gap-2 mt-2">
             <input onChange={e => SetQuantity(e.target.value)} type="number" value={product.quantity} min={1} className="text-base px-3 py-2 w-1/4 bg-white border rounded-sm"></input>
-            <button onClick={AddProductToCar} className="py-2 bg-amber-500 hover:bg-amber-600 text-neutral-900 w-3/4 rounded-sm">agregar al carrito</button>
+            <button onClick={AddProductToCar} className="py-2 bg-amber-500 hover:bg-neutral-800 hover:text-amber-500 transition-all duration-200 text-neutral-800 w-3/4 rounded-sm">agregar al carrito</button>
           </div>
         </div>
       </div>

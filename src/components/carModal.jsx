@@ -96,7 +96,7 @@ export default function CarModal() {
           <div className="border-t p-5 mt-5">
             <p className="w-full text-right"><span className="font-medium">Total:</span> {totalPrice}</p>
           </div>
-          <a href={whatsappLink} target="_blank" className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-neutral-800 text-center rounded-sm">Hacer pedido</a>
+          <a href={whatsappLink} target="_blank" className="w-full py-3 bg-amber-500 hover:bg-neutral-800 hover:text-amber-500 text-neutral-800 text-center rounded-sm transition-all duration-200">Hacer pedido</a>
           <button className="text-xs font-light underline mt-3" onClick={closeCar}>continuar comprando</button>
         </>
       )

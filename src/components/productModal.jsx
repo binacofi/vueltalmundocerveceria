@@ -1,11 +1,11 @@
-export default function ProductModal({product}) {
 
-  console.log(product)
+export default function ProductModal({product, showModal, closeModal}) {
+
 
   return(
-    <div className="w-full h-screen fixed bg-neutral-800/90">
+    <div className={`w-full ${ showModal ? "" : "hidden" } h-screen top-0 left-0 fixed bg-neutral-800/90`}>
       <div className="flex justify-end p-5">
-        <button className="font-medium text-lg text-white">x</button>
+        <button onClick={closeModal} className="font-medium text-lg text-white">x</button>
       </div>
       <div className="w-full justify-center flex px-5">
         <div className="p-5 bg-neutral-100 w-full max-w-sm rounded-sm shadow-lg">

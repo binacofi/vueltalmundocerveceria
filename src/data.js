@@ -14,7 +14,8 @@ let beers = [
     description: "Cerveza de origen irlandes, alta fermentación, sabor malteado a caramelo, notas frutales y no suele llevar mucho lúpulo.",
     abv: 5,
     price: 10.00,
-    img: "/red_irish_ale.jpeg"
+    img: "/red_irish_ale.jpeg",
+    singleImg: "/single_red_irish_ale.png"
   },
   {
     id: "pilsner",

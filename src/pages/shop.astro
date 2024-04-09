@@ -3,8 +3,7 @@ import Layout from "../layouts/Layout.astro"
 import Top from "../components/top.astro"
 import beers from "../data" 
 import ProductCard from "../components/productCard.astro"
-
-console.log(beers)
+import ProductModal from "../components/productModal.jsx"
 ---
 
 <Layout title="tienda">
@@ -32,4 +31,5 @@ console.log(beers)
     </ul>
 	</main>
   </div>
+  <ProductModal product={beers[1]}/>
 </Layout>

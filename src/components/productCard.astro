@@ -1,0 +1,15 @@
+---
+const { product } = Astro.props
+---
+<div class="w-full flex flex-col shadow-lg">
+  <div>
+    <img alt="cerveza" class="w-full" src={product?.img} />
+  </div>
+  <div class="bg-amber-500 text-black p-4 flex flex-col gap-1">
+    <div class="flex justify-between">
+      <span class="font-medium text-xl">{product?.name}</span> 
+      <span class="font-medium text-xl">{product?.abv}%</span> 
+    </div>
+    <span class="text-neutro-700">ref: {product?.price}</span>
+  </div>
+</div>

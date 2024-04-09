@@ -6,7 +6,8 @@ let beers = [
     description: "Indian Pale Ale, una cerveza de sabores intensos, amarga, con una gran cantidad de lúpulo.",
     abv: 5.7,
     price: 10.00,
-    img: "/ipa.jpeg"
+    img: "/ipa.jpeg",
+    singleImg: "/single_ipa.png"
   },
   {
     id: "red_irish_ale",
@@ -23,7 +24,8 @@ let beers = [
     description: "La lager mas fámosa a nivel mundial, una cerveza refrescante, ligera, con aroma a lúpulo y su característico color dorado.",
     abv: 4.5,
     price: 10.00,
-    img: "/pilsner.jpeg"
+    img: "/pilsner.jpeg",
+    singleImg: "/single_pilsner.png"
   },
   {
     id: "kolsch",
@@ -31,7 +33,8 @@ let beers = [
     description: "Cerveza ALE de origen alemán, delicada y balanceada, con un caracter sutil a lúpulo y afrutado.",
     abv: 4.7,
     price: 10.00,
-    img: "/kolsch.jpeg"
+    img: "/kolsch.jpeg",
+    singleImg: "/single_kolsch.png"
   },
 ]
 

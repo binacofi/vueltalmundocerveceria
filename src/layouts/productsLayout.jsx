@@ -2,6 +2,7 @@
 import {useEffect, useState} from "preact/hooks"
 import ProductCard from "../components/productCard.jsx"
 import ProductModal from "../components/productModal.jsx"
+import CarModal from "../components/carModal.jsx"
 export default function ProductsLayout({beers}) {
 
   const [selectBeer, SetSelectBeer] = useState(beers[1])
@@ -38,6 +39,7 @@ export default function ProductsLayout({beers}) {
       </main>
     </div>
     <ProductModal product={selectBeer} showModal={showModal} closeModal={() => SetShowModal(false)}/>
+    <CarModal/>
     </>
   ) 
 }

@@ -8,10 +8,11 @@ export default function ProductModal({product, showModal, closeModal}) {
 
   function AddProductToCar() {
     addToCar(product)
+    closeModal()
   }
 
   return(
-    <div className={`w-full ${ showModal ? "" : "hidden" } h-screen top-0 left-0 fixed bg-neutral-800/90`}>
+    <div className={`z-10 w-full ${ showModal ? "" : "hidden" } h-screen top-0 left-0 fixed bg-neutral-800/90`}>
       <div className="flex justify-end px-5 py-3">
         <button onClick={closeModal} className="font-medium text-lg text-white">x</button>
       </div>

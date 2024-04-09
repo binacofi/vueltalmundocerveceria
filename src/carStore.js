@@ -28,10 +28,9 @@ export function addToCar(newBeer) {
 
 export function removeFromCar(removedBeer) {
   
-  let copy = cat.get()
+  let copy = car.get()
   car.set([])
 
-  copy.filter(beer => beer.id == removedBeer.id)
-
+  copy = copy.filter(beer => beer.id != removedBeer.id)
   car.set(copy)
 }

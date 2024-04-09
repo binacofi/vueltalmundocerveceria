@@ -4,23 +4,68 @@ import { car, removeFromCar } from "../carStore"
 export default function CarModal() {
 
   const [showCar, SetShowCar] = useState(false)
+  const [render, SetRender] = useState(false)
+  const [totalPrice, SetTotalPrice] = useState(0)
+  const [whatsappLink, SetWhatsappLink] = useState("")
 
-  const openCar = () => SetShowCar(true)
-  const closeCar = () => SetShowCar(false)
+  useState(() => {
+    CalculateTotalPrice()
+    GenWhatsappLink()
+  }, [render])
 
-  function SetQuantity(e)  {
-    product.quantity = e
+  const openCar = () => {
+    SetShowCar(true)
+    GenWhatsappLink()
+    CalculateTotalPrice()
+  } 
+
+  const closeCar = () => {
+    SetShowCar(false)
+    GenWhatsappLink()
+    CalculateTotalPrice()
+  } 
+
+  function SetQuantity(beer, e)  {
+    beer.quantity = e
+    CalculateTotalPrice()
+    GenWhatsappLink()
+    SetRender(!render)
   }
 
-  function RemoveProductFromCar(beer) {
-    removeFromCar(beer) 
+  function RemoveProductFromCar(removedBeer) {
+
+    removeFromCar(removedBeer) 
+    CalculateTotalPrice()
+    GenWhatsappLink()
+    SetRender(!render)
+
+  }
+
+  function CalculateTotalPrice() {
+
+    let amount = 0
+
+    car.get().map(beer => {
+      amount += beer.quantity * beer.price 
+    })
+
+    SetTotalPrice(amount)
+  }
+
+  function GenWhatsappLink() {
+    let link = "https://wa.me/573152268206?text=Buen%20día.%20Tengo%20interes%20en%20los%20siguientes%20productos:%0A"
+    car.get().map(beer => {
+      link += `%0A🍺%20${beer?.name}%20-%20${beer?.quantity}%20unidades%0A`
+    })
+    link += "%0AEspero%20pronto%20los%20datos%20que%20necesite.%20Gracias."
+    SetWhatsappLink(link)
   }
 
   return(
     <>
       <div className={`z-10 w-full ${ showCar ? "" : "hidden" } h-screen top-0 left-0 fixed bg-neutral-800/90`}>
         <div className="flex justify-end px-5 py-3">
-          <button onClick={closeCar} className="font-medium text-lg text-white">x</button>
+          <button onClick={closeCar} className="font-medium text-2xl text-white">x</button>
         </div>
 
         <div className="w-full justify-center flex px-5">
@@ -39,8 +84,8 @@ export default function CarModal() {
                 <span className=" block text-sm">ref: {beer?.price}</span>
               </div> 
               <div className="flex flex-row gap-2 justify-end">
-                <input onChange={e => SetQuantity(e.target.value)} type="number" min={1} defaultValue={beer?.quantity} className="text-base px-3 py-2 w-1/4 bg-white border rounded-sm"></input>
-                <button className="py-2 px-3 bg-red-500 text-white hover:bg-red-600  rounded-sm"><i class="fi fi-rr-trash flex items-center"></i></button>
+                <input onChange={e => SetQuantity(beer, e.target.value)} type="number" min={1} value={beer?.quantity} className="text-base px-3 py-2 w-1/4 bg-white border rounded-sm"></input>
+                <button onClick={() => RemoveProductFromCar(beer)} className="py-2 px-3 bg-red-500 text-white hover:bg-red-600  rounded-sm"><i class="fi fi-rr-trash flex items-center"></i></button>
               </div>
             </li>
 
@@ -49,9 +94,9 @@ export default function CarModal() {
         }
           </ul>
           <div className="border-t p-5 mt-5">
-            <p className="w-full text-right"><span className="font-medium">Total:</span> 100</p>
+            <p className="w-full text-right"><span className="font-medium">Total:</span> {totalPrice}</p>
           </div>
-          <button className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-neutral-800 text-center rounded-sm">Comprar</button>
+          <a href={whatsappLink} target="_blank" className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-neutral-800 text-center rounded-sm">Hacer pedido</a>
           <button className="text-xs font-light underline mt-3" onClick={closeCar}>continuar comprando</button>
         </>
       )

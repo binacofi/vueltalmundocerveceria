@@ -26,7 +26,17 @@ export default function CarModal() {
   } 
 
   function SetQuantity(beer, e)  {
-    beer.quantity = e
+
+    if (e == "") {
+
+    } else {
+
+      const quantity = parseInt(e)
+      if ( quantity >= 1 ) {
+        beer.quantity = quantity
+      }
+    }
+
     CalculateTotalPrice()
     GenWhatsappLink()
     SetRender(!render)

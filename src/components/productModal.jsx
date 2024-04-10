@@ -3,7 +3,18 @@ import {addToCar} from "../carStore"
 export default function ProductModal({product, showModal, closeModal}) {
 
   function SetQuantity(e)  {
-    product.quantity = e
+
+    if (e == "") {
+
+    } else {
+
+      const quantity = parseInt(e)
+
+      if (quantity >= 1) {
+        product.quantity = quantity
+      }
+
+    }
   }
 
   function AddProductToCar() {

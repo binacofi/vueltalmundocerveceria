@@ -3,10 +3,12 @@ import {useEffect, useState} from "preact/hooks"
 import ProductCard from "../components/productCard.jsx"
 import ProductModal from "../components/productModal.jsx"
 import CarModal from "../components/carModal.jsx"
+import Alert from "../components/alert.jsx"
 export default function ProductsLayout({beers}) {
 
   const [selectBeer, SetSelectBeer] = useState(beers[1])
   const [showModal, SetShowModal] = useState(false) 
+  const [showAlert, SetShowAlert] = useState(false)
 
   useEffect(() => {
 
@@ -19,6 +21,7 @@ export default function ProductsLayout({beers}) {
   
   return(
     <>
+    <Alert showAlert={showAlert} product={selectBeer} />
     <div class="w-full max-w-3xl text-gray-50">
       <main class="w-full flex justify-center w-full flex-col gap-8 p-10">
         <div class="w-full flex justify-center w-full flex-col gap-2">
@@ -38,7 +41,7 @@ export default function ProductsLayout({beers}) {
         </ul>
       </main>
     </div>
-    <ProductModal product={selectBeer} showModal={showModal} closeModal={() => SetShowModal(false)}/>
+    <ProductModal product={selectBeer} showModal={showModal} closeModal={() => SetShowModal(false)} showAlert={(e) => SetShowAlert(e)}/>
     <CarModal/>
     </>
   ) 

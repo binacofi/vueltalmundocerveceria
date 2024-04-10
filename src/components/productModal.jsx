@@ -1,6 +1,6 @@
 import {addToCar} from "../carStore"
 
-export default function ProductModal({product, showModal, closeModal}) {
+export default function ProductModal({product, showModal, closeModal, showAlert}) {
 
   function SetQuantity(e)  {
 
@@ -20,6 +20,10 @@ export default function ProductModal({product, showModal, closeModal}) {
   function AddProductToCar() {
     addToCar(product)
     closeModal()
+    showAlert(true)
+    setTimeout(() => {
+      showAlert(false)
+    }, 1500)
   }
 
   return(

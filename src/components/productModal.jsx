@@ -44,7 +44,9 @@ export default function ProductModal({product, showModal, closeModal, showAlert}
           <p className="text-xs my-3">{product?.description}</p>
           <div className="flex items-center justify-between gap-2 mt-2">
             <input onChange={e => SetQuantity(e.target.value)} type="number" value={product.quantity} min={1} className="text-base px-3 py-2 w-1/4 bg-white border rounded-sm"></input>
-            <button onClick={AddProductToCar} className="py-2 bg-amber-500 hover:bg-neutral-800 hover:text-amber-500 transition-all duration-200 text-neutral-800 w-3/4 rounded-sm">agregar al carrito</button>
+            <button onClick={AddProductToCar} className="py-2 bg-amber-500 hover:bg-neutral-800 hover:text-amber-500 transition-all duration-200 text-neutral-800 w-3/4 rounded-sm">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>

@@ -32,7 +32,7 @@ export default function ProductModal({product, showModal, closeModal, showAlert}
         <button onClick={closeModal} className="font-medium text-2xl text-white">x</button>
       </div>
       <div className="w-full justify-center flex px-5">
-        <div className="p-5 bg-neutral-100 w-full max-w-sm rounded-sm shadow-lg">
+        <div className="p-5 bg-neutral-100 mt-16 sm:mt-0 w-full max-w-sm rounded-sm shadow-lg">
           <div className="flex justify-center w-full">
             <img className=" max-h-64" alt={`Cerveza ` + product?.name} src={product?.singleImg}></img>
           </div>

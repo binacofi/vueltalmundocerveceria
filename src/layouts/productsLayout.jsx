@@ -23,7 +23,7 @@ export default function ProductsLayout({beers}) {
     <>
     <Alert showAlert={showAlert} product={selectBeer} />
     <div class="w-full max-w-3xl text-gray-50">
-      <main class="w-full flex justify-center w-full flex-col gap-8 p-10">
+      <main class="w-full flex justify-center w-full flex-col gap-8 px-10 py-5">
         <div class="w-full flex justify-center w-full flex-col gap-2">
           <p class="w-full text-center text-xl font-medium">CONOCE NUESTRAS CERVEZAS</p>
           <p class="w-full text-center text-base">A un par de clicks de distancia</p>

@@ -80,7 +80,7 @@ export default function CarModal() {
         </div>
 
         <div className="w-full justify-center flex px-5">
-          <div className="p-5 bg-neutral-100 flex flex-col mt-16 justify-center w-full max-w-sm rounded-sm shadow-lg">
+          <div className="p-5 bg-neutral-100 mt-24 sm:mt-0 flex flex-col mt-16 justify-center w-full max-w-sm rounded-sm shadow-lg">
     {
       car.get().length > 0 
       ? (
